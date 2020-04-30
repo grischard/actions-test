@@ -8,5 +8,5 @@ jobs:
     steps:
     - name: Test curl
       run: |
-        curl https://git.openstreetmap.org/
-        curl -L http://git.openstreetmap.org/
+        curl -v -I --local-port 1337 https://git.openstreetmap.org/
+        curl -v -I --local-port 31337 https://git.openstreetmap.org
