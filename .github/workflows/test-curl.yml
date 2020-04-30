@@ -1,0 +1,12 @@
+name: Test Curl
+on:
+  - push
+jobs:
+  test:
+    name: Test Curl
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test curl
+      run: |
+        curl https://git.openstreetmap.org/
+        curl -L http://git.openstreetmap.org/
