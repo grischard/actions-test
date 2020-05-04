@@ -8,13 +8,6 @@ jobs:
     steps:
     - name: Test curl
       run: |
-        sudo ip addr
-        sudo tcpdump -i eth0 -s 65535 -w githubactions.cap &
         curl https://join.osmfoundation.org/xmlrpc.php
         curl https://join.osmfoundation.org/xmlrpc.php
-    - name: Autopsy
-      if: ${{ always() }}
-      run: |
-        sudo killall tcpdump
-        sudo cat githubactions.cap | gzip -9 | base64
 
