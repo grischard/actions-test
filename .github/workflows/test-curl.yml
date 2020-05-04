@@ -9,8 +9,12 @@ jobs:
     - name: Test curl
       run: |
         sudo ip addr
-        sudo ifconfig
-        sudo ip route
-        sudo curl https://join.osmfoundation.org 
-        sudo curl https://join.osmfoundation.org 
+        sudo tcpdump -i eth0 -s 65535 -w githubactions.cap &
+        curl https://join.osmfoundation.org/xmlrpc.php
+        curl https://join.osmfoundation.org/xmlrpc.php
+    - name: Autopsy
+      if: ${{ always() }}
+      run: |
+        sudo killall tcpdump
+        sudo cat githubactions.cap
 
