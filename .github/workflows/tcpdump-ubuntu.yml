@@ -1,15 +1,15 @@
-name: Test Tcpdump
+name: Test Tcpdump Ubuntu
 on:
   - push
 jobs:
   test:
-    name: Test Tcpdump
+    name: Test Tcpdump Ubuntu
     runs-on: ubuntu-latest
     steps:
     - name: Test curl
       run: |
         sudo ip addr
-        sudo tcpdump -i eth0 -s 65535 -w githubactions.cap &
+        sudo tcpdump -i eth0 -s 65535 -w githubactions.cap host 193.60.236.19 &
         curl https://join.osmfoundation.org/xmlrpc.php
         curl https://join.osmfoundation.org/xmlrpc.php
     - name: Tcpdump full
