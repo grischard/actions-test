@@ -1,0 +1,12 @@
+name: Test Curl Ubuntu
+on:
+  - push
+jobs:
+  test:
+    name: Test Curl Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test curl Ubuntu
+      run: |
+        curl https://join.osmfoundation.org/xmlrpc.php
+        curl https://join.osmfoundation.org/xmlrpc.php
