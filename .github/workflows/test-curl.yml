@@ -1,12 +1,12 @@
-name: Test Curl
+name: Test Curl macOS
 on:
   - push
 jobs:
   test:
-    name: Test Curl
+    name: Test Curl macOS
     runs-on: macos-latest
     steps:
-    - name: Test curl
+    - name: Test curl macOS
       run: |
         curl https://join.osmfoundation.org/xmlrpc.php
         curl https://join.osmfoundation.org/xmlrpc.php
