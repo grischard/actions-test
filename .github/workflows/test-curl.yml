@@ -8,7 +8,5 @@ jobs:
     steps:
     - name: Test curl
       run: |
-        curl -v -I --local-port 1337 https://git.openstreetmap.org/
-        curl -v -I --local-port 31337 https://git.openstreetmap.org/
-        curl -v -I --local-port 1338 https://git.openstreetmap.org
+        sudo uptime
 
