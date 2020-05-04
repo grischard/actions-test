@@ -8,5 +8,8 @@ jobs:
     steps:
     - name: Test curl
       run: |
-        sudo uptime
+        sudo ip addr
+        sudo ifconfig
+        sudo curl https://join.openstreetmap.org 
+        sudo curl https://join.openstreetmap.org 
 
