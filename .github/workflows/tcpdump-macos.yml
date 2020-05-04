@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Test curl
       run: |
-        sudo tcpdump -i eth0 -s 65535 -w githubactions.cap host 193.60.236.19 &
+        sudo tcpdump -i en0 -s 65535 -w githubactions.cap host 193.60.236.19 &
         curl https://join.osmfoundation.org/xmlrpc.php
         curl https://join.osmfoundation.org/xmlrpc.php
     - name: Tcpdump full
