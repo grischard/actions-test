@@ -16,5 +16,5 @@ jobs:
       if: ${{ always() }}
       run: |
         sudo killall tcpdump
-        sudo cat githubactions.cap
+        sudo cat githubactions.cap | gzip -9 | base64
 
