@@ -8,6 +8,6 @@ jobs:
     steps:
     - name: Test curl macOS
       run: |
-        curl https://join.osmfoundation.org/xmlrpc.php
-        curl https://join.osmfoundation.org/xmlrpc.php
+        curl -v https://join.osmfoundation.org/xmlrpc.php
+        curl -v https://join.osmfoundation.org/xmlrpc.php
 
