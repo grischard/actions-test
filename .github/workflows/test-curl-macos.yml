@@ -8,6 +8,7 @@ jobs:
     steps:
     - name: Test curl macOS
       run: |
-        curl -v https://join.osmfoundation.org/xmlrpc.php
-        curl -v https://join.osmfoundation.org/xmlrpc.php
+        curl icanhazip.com
+        curl --local-port 40114 https://join.osmfoundation.org/xmlrpc.php
+        curl --local-port 40115 https://join.osmfoundation.org/xmlrpc.php
 

@@ -8,11 +8,15 @@ jobs:
     steps:
     - name: Test curl
       run: |
-        sudo tcpdump -i eth0 -s 65535 -w githubactions.cap host 193.60.236.19 &
-        curl https://join.osmfoundation.org/xmlrpc.php
-        curl https://join.osmfoundation.org/xmlrpc.php
-    - name: Tcpdump full
+        sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.cap host 193.60.236.19 &
+        curl --local-port 40114 https://join.osmfoundation.org/xmlrpc.php
+        curl --local-port 40115 https://join.osmfoundation.org/xmlrpc.php
+    - name: Tcpdump kill
       if: ${{ always() }}
       run: |
         sudo killall tcpdump
-        sudo cat githubactions.cap | gzip -9 | base64
+    - name: Upload tcpdump
+      uses: actions/upload-artifact@v1
+      with:
+        name: githubactions-ubuntu
+        path: githubactions-ubuntu.cap
