@@ -14,6 +14,7 @@ jobs:
     - name: Tcpdump kill
       if: ${{ always() }}
       run: |
+        ps auxww | grep tcpdump
         sudo killall -2 tcpdump
     - name: Upload tcpdump
       if: ${{ always() }}
