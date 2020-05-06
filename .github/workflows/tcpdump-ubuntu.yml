@@ -11,8 +11,10 @@ jobs:
         sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap host 193.60.236.19 &
         curl --local-port 40114 https://join.osmfoundation.org/xmlrpc.php
         curl --local-port 40115 https://join.osmfoundation.org/xmlrpc.php
-        sudo killall -2 tcpdump
-    - name: Upload tcpdump
+    - name: Tcpdump kill
+      if: ${{ always() }}
+      run: |
+        sudo killall -2 tcpdump    - name: Upload tcpdump
       if: ${{ always() }}
       uses: actions/upload-artifact@v1
       with:
