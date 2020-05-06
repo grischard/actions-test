@@ -9,5 +9,5 @@ jobs:
     - name: Test curl Ubuntu
       run: |
         curl icanhazip.com
-        curl --local-port 40114 https://join.osmfoundation.org/xmlrpc.php
-        curl --local-port 40115 https://join.osmfoundation.org/xmlrpc.php
+        curl --quiet --show-error --local-port 40114 https://join.osmfoundation.org/xmlrpc.php
+        curl --quiet --show-error --local-port 42116 https://join.osmfoundation.org/xmlrpc.php
