@@ -9,9 +9,11 @@ jobs:
     - name: Test curl
       run: |
         set +e
+        curl icanhazip.com
         sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap &
-        curl --local-port 40114 https://join.osmfoundation.org/xmlrpc.php
-        curl --local-port 40115 https://join.osmfoundation.org/xmlrpc.php
+        curl --silent --show-error https://join.osmfoundation.org/xmlrpc.php
+        curl --silent --show-error https://git.openstreetmap.org/
+        curl --silent --show-error https://join.osmfoundation.org/xmlrpc.php
         sudo killall -2 tcpdump
     - name: Upload tcpdump
       if: ${{ always() }}
