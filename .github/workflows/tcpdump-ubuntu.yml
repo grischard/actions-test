@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Test curl
       run: |
-        sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.cap host 193.60.236.19 &
+        sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap host 193.60.236.19 &
         curl --local-port 40114 https://join.osmfoundation.org/xmlrpc.php
         curl --local-port 40115 https://join.osmfoundation.org/xmlrpc.php
     - name: Tcpdump kill
@@ -20,4 +20,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: githubactions-ubuntu
-        path: githubactions-ubuntu.cap
+        path: githubactions-ubuntu.pcap
