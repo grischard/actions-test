@@ -16,6 +16,7 @@ jobs:
       run: |
         sudo killall tcpdump
     - name: Upload tcpdump
+      if: ${{ always() }}
       uses: actions/upload-artifact@v1
       with:
         name: githubactions-macos
