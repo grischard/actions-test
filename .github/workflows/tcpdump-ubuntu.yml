@@ -12,7 +12,6 @@ jobs:
         curl icanhazip.com
         sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap &
         curl --silent --show-error https://join.osmfoundation.org/xmlrpc.php
-        curl --silent --show-error https://git.openstreetmap.org/
         curl --silent --show-error https://join.osmfoundation.org/xmlrpc.php
         sudo killall -2 tcpdump
     - name: Upload tcpdump
