@@ -21,3 +21,7 @@ jobs:
       with:
         name: githubactions-ubuntu
         path: githubactions-ubuntu.pcap
+    - name: Always fail so I can conveniently re-run
+      if: ${{ always() }}
+      run: |
+        exit 99
