@@ -9,11 +9,12 @@ jobs:
     - name: Test curl
       run: |
         set +e
-        curl icanhazip.com
-        sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap &
+        curl --silent icanhazip.com
+        sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap host 193.60.236.19 &
         curl --silent --show-error https://join.osmfoundation.org/xmlrpc.php
         curl --silent --show-error https://join.osmfoundation.org/xmlrpc.php
         sudo killall -2 tcpdump
+        sleep 1
     - name: Upload tcpdump
       if: ${{ always() }}
       uses: actions/upload-artifact@v1
