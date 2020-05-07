@@ -11,6 +11,7 @@ jobs:
         set +e
         set -x
         curl --silent icanhazip.com
+        sleep 30
         sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap host 193.60.236.19 &
         curl --silent --show-error https://join.osmfoundation.org/
         curl --silent --show-error https://join.osmfoundation.org/
