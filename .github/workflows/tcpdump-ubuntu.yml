@@ -9,10 +9,11 @@ jobs:
     - name: Test curl
       run: |
         set +e
+        set -x
         curl --silent icanhazip.com
         sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap host 193.60.236.19 &
-        curl --silent --show-error https://join.osmfoundation.org/xmlrpc.php
-        curl --silent --show-error https://join.osmfoundation.org/xmlrpc.php
+        curl --silent --show-error https://join.osmfoundation.org/
+        curl --silent --show-error https://join.osmfoundation.org/
         sudo killall -2 tcpdump
         sleep 1
     - name: Upload tcpdump
