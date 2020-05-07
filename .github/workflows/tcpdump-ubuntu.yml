@@ -16,10 +16,8 @@ jobs:
         sleep 2
         # Works
         curl --silent --show-error https://join.osmfoundation.org/ -o /dev/null
-        echo $?
         # Fails
         curl --silent --show-error https://join.osmfoundation.org/ -o /dev/null
-        echo $?
         sleep 5
         sudo killall -2 tcpdump
         sleep 1
