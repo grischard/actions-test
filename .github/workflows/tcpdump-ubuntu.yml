@@ -15,9 +15,9 @@ jobs:
         sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap host 193.60.236.19 &
         sleep 2
         # Works
-        curl --silent --show-error https://join.osmfoundation.org/ -o /dev/null
+        curl --silent --show-error https://stereo.lu -o /dev/null
         # Fails
-        curl --silent --show-error https://join.osmfoundation.org/ -o /dev/null
+        curl --silent --show-error https://stereo.lu -o /dev/null
         sleep 5
         sudo killall -2 tcpdump
         sleep 1
