@@ -6,6 +6,8 @@ jobs:
     name: Test Tcpdump Ubuntu
     runs-on: ubuntu-latest
     steps:
+    - name: Install hping
+      run: sudo apt-get -y install hping
     - name: Test curl
       run: |
         set +e
@@ -14,10 +16,14 @@ jobs:
         sleep 5
         sudo tcpdump -i eth0 -s 65535 -w githubactions-ubuntu.pcap host 193.60.236.19 &
         sleep 2
+        
         # Works
-        curl --silent --show-error https://stereo.lu -o /dev/null
+        #curl --silent --show-error https://stereo.lu -o /dev/null
         # Fails
-        curl --silent --show-error https://stereo.lu -o /dev/null
+        #curl --silent --show-error https://stereo.lu -o /dev/null
+        
+        sudo hping3 --fast --count 100 -S -p 443 join.osmfoundation.org
+        
         sleep 5
         sudo killall -2 tcpdump
         sleep 1
