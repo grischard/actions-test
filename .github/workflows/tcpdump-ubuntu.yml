@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install hping
-      run: sudo apt-get -y install hping
+      run: sudo apt-get -y install hping3
     - name: Test curl
       run: |
         set +e
